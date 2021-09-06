@@ -29,6 +29,10 @@ public class ListaFuncionarios {
                     String nomeDoFuncionario = teclado.nextLine();
                     System.out.println("Entre com o CPF do Funcionário: ");
                     String cpf = teclado.nextLine();
+                    while(funcionarios.containsKey(cpf)) {
+                        System.out.println("Esse CPF já está cadastrado no sistema. Digite o CPF do novo funcionário: ");
+                        cpf = teclado.nextLine();
+                        }
                     System.out.println("Entre com o telefone do Funcionário: ");
                     String telefone = teclado.nextLine();
                     System.out.println("Entre com o email do Funcionário: ");
@@ -37,7 +41,7 @@ public class ListaFuncionarios {
                     System.out.println(" ");
                     System.out.println("Usuário Cadastrado. Operação realizada com sucesso.");
                     break;
-                }
+                    }
                 case 2: {
                     for (String referencia : funcionarios.keySet()) {
                         System.out.println(funcionarios.get(referencia) + ". CPF: " + referencia);
