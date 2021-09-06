@@ -15,7 +15,8 @@ public class ListaFuncionarios {
         while (looping == true) {
             System.out.println("Se deseja CADASTRAR um funcionário, digite 1. ");
             System.out.println("Se deseja MOSTRAR o(s) funcionário(s) cadastrados, digite 2. ");
-            System.out.println("Se deseja SAIR, digite 3. ");
+            System.out.println("Se deseja EXCLUIR um funcionário da lista, digite 3. ");
+            System.out.println("Se deseja SAIR, digite 4. ");
             System.out.println(" ");
             System.out.println("Digite a opção desejada: ");
 
@@ -29,10 +30,10 @@ public class ListaFuncionarios {
                     String nomeDoFuncionario = teclado.nextLine();
                     System.out.println("Entre com o CPF do Funcionário: ");
                     String cpf = teclado.nextLine();
-                    while(funcionarios.containsKey(cpf)) {
+                    while (funcionarios.containsKey(cpf)) {
                         System.out.println("Esse CPF já está cadastrado no sistema. Digite o CPF do novo funcionário: ");
                         cpf = teclado.nextLine();
-                        }
+                    }
                     System.out.println("Entre com o telefone do Funcionário: ");
                     String telefone = teclado.nextLine();
                     System.out.println("Entre com o email do Funcionário: ");
@@ -41,7 +42,7 @@ public class ListaFuncionarios {
                     System.out.println(" ");
                     System.out.println("Usuário Cadastrado. Operação realizada com sucesso.");
                     break;
-                    }
+                }
                 case 2: {
                     for (String referencia : funcionarios.keySet()) {
                         System.out.println(funcionarios.get(referencia) + ". CPF: " + referencia);
@@ -49,6 +50,17 @@ public class ListaFuncionarios {
                     break;
                 }
                 case 3: {
+                    System.out.println("Por favor, digite o CPF do funcionário que deseja excluir do cadastro:");
+                    String cpf = teclado.next();
+                        if (funcionarios.containsKey(cpf)){
+                            funcionarios.remove(cpf);
+                            System.out.println("Funcionário excluído do cadastro. Operação realizada com sucesso.");
+                        }else{
+                            System.out.println("Este número de CPF não consta no cadastro de funcionários.");
+                        }
+                    break;
+                }
+                case 4: {
                     looping = false;
                     System.out.println("Você saiu do sistema");
                     break;
@@ -63,5 +75,3 @@ public class ListaFuncionarios {
         teclado.close();
     }
 }
-//Criação de Menu para Inserção de funcionário, listagem dos cadastrados com seus dados e saída do sistema
-//Entrega Média
