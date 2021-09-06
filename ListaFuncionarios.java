@@ -44,6 +44,10 @@ public class ListaFuncionarios {
                     break;
                 }
                 case 2: {
+                    while(funcionarios.isEmpty()){
+                        System.out.println("Ainda não existem funcionários cadastrados.");
+                        break;
+                    }
                     for (String referencia : funcionarios.keySet()) {
                         System.out.println(funcionarios.get(referencia) + ". CPF: " + referencia);
                     }
